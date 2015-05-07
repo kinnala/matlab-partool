@@ -22,7 +22,7 @@ files=dir('partool_worker*');
 nw=0;
 % put found workers to a cell array
 for file=files'
-    workers{nw+1}=file.name(8:end);
+    workers{nw+1}=file.name(16:end);
     nw=nw+1;
 end
 if nw==0

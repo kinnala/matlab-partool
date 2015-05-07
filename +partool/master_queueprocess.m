@@ -11,9 +11,9 @@ cd(pool.directory);
 freeworkers={};
 
 for itr=1:pool.nw
-    if exist(['partool_worker_',pool.workers{itr},'_init.mat'],'file')~=2 && \
-       exist(['partool_worker_',pool.workers{itr},'_output.mat'],'file')~=2 && \
-       exist(['partool_worker_',pool.workers{itr},'_task.mat'],'file')~=2 
+    if exist(['partool_worker_',pool.workers{itr},'_init.mat'],'file')~=2 && ...
+        exist(['partool_worker_',pool.workers{itr},'_output.mat'],'file')~=2 && ...
+        exist(['partool_worker_',pool.workers{itr},'_task.mat'],'file')~=2 
         % is free
         freeworkers{end+1}=pool.workers{itr};
     end

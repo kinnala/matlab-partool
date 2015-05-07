@@ -5,6 +5,7 @@ function slave_start(directory,restartflag)
 % Syntax:
 %   partool.slave_start(directory)
 global workerdata
+global id
 
 % not restart
 if nargin==1

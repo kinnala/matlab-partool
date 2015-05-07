@@ -8,7 +8,7 @@ ntasks=10;
 for itr=1:ntasks
     idata=struct;
     idata.x=ones(10,1);
-    partool.master_queuetask(pool,@example_job_task,idata);
+    pool=partool.master_queuetask(pool,@example_job_task,idata);
 end
 
 done=0;
@@ -23,9 +23,10 @@ while ~done
         for itr=ids
             ncomplete=ncomplete+1;
         end
-        display(['Already completed ',num2str(ncomplete),'tasks!']);
+        display(['Already completed ',num2str(ncomplete),' tasks!']);
     end
     if ncomplete==ntasks
         display('All tasks done!');
+        done=1;
     end
 end

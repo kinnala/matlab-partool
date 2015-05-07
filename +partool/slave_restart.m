@@ -10,4 +10,4 @@ odata.done=0;
 save(['partool_worker_',name,'_output.mat'],'odata');
 eval(['!rm partool_worker_',name,'_task.mat']);
 display('partool: Sent failure to master. Restarting slave ...');
-partool.slave_start(directory);
+partool.slave_start(directory,'restart');

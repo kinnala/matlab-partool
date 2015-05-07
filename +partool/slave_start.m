@@ -1,11 +1,15 @@
-function slave_start(directory)
+function slave_start(directory,restartflag)
 % Start a partool slave.
-% NOTE! Saves slave data to global variable 'workerdata'. Clear after use.
+% NOTE! Saves slave data to global variable 'workerdata'.
 %
 % Syntax:
 %   partool.slave_start(directory)
 global workerdata
 
+% not restart
+if nargin==1
+    workerdata=[];
+end
 % change directory
 cd(directory)
 % get name of the machine (Linux only)
@@ -19,13 +23,14 @@ end
 
 % how long to wait between subsequent filesystem reads?
 nsec=1;
+% width of the wait bar
+barwidth=8;
 
 if ~isstruct(workerdata)
     % go into init loop
     display('partool: Worker started, waiting for initialization commands ...');
     revstr='';
     nth=0;
-    barwidth=5;
     while 1
         pause(nsec+rand);
         if exist(['partool_worker_',name,'_init.mat'],'file')==2

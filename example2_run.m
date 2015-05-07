@@ -17,8 +17,8 @@ ncomplete=0;
 
 while ~done
     pause(2);
-    master_queueprocess(pool);
-    [odata,ids]=master_checkoutput(pool);
+    partool.master_queueprocess(pool);
+    [odata,ids]=partool.master_checkoutput(pool);
     if length(ids)~=0
         for itr=ids
             ncomplete=ncomplete+1;

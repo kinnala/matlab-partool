@@ -12,10 +12,10 @@ for itr=1:nruns
     odata=partool.master_sendtask(pool,@example_job_task,idata);
     y=zeros(10,1);
     for jtr=1:pool.nw
-        if odata{jtr}.done
+        if odata{jtr}.done==1
             y=y+odata{jtr}.y;
         else
-            display(['Worker ',pool.workers{itr},' reported failure!']);
+            display(['Worker ',pool.workers{jtr},' reported failure!']);
         end
     end
 end

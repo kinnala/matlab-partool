@@ -20,7 +20,7 @@ end
 % how long to wait between subsequent filesystem reads?
 nsec=1;
 
-if ~isstruct('workerdata')
+if ~isstruct(workerdata)
     % go into init loop
     display('partool: Worker started, waiting for initialization commands ...');
     revstr='';

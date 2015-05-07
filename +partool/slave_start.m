@@ -85,8 +85,9 @@ while 1
         % run the task
         try
             [workerdata,odata]=taskstruct.task(id,workerdata,taskstruct.idata);
-        catch
-            display('partool: ERROR! Task threw an expection. Setting ''odata.done=0''.');
+        catch err
+            display('partool: ERROR! Task threw the following expection;');
+            display(getReport(err));
             odata.done=0; 
         end
         save(['partool_worker_',name,'_output.mat'],'odata');

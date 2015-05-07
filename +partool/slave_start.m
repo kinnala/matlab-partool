@@ -1,8 +1,8 @@
-function start_slave(directory)
+function slave_start(directory)
 % Start a partool slave.
 %
 % Syntax:
-%   partool.start_slave(directory)
+%   partool.slave_start(directory)
 
 % change directory
 cd(directory)

@@ -47,17 +47,20 @@ while 1
     % print status
     msg=['partool: Task status ',num2str(sum(rdy)),'/',num2str(pool.nw),'; '];
     for itr=1:pool.nw
-        msg=[msg workers{itr}];
+        msg=[msg pool.workers{itr}];
+        msg=[msg '('];
         if rdy(itr)
             msg=[msg '*'];
+        else
+            msg=[msg ' '];
         end
-        msg=[msg ' '];
+        msg=[msg ') '];
     end
     fprintf([revstr,msg]);
     revstr=repmat(sprintf('\b'),1,length(msg));
     % check if all done
     if sum(rdy)==pool.nw
-        msg=sprintf('partool: All tasks completed!\n');
+        msg=sprintf('\npartool: All tasks completed!\n');
         fprintf(msg);
         break
     end

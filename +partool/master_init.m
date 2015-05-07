@@ -53,7 +53,7 @@ while 1
         end
     end
     % print status
-    msg=['partool: Initialization status ',num2str(nw-sum(rdy)),'/',nw,';\n'];
+    msg=['partool: Initialization status ',num2str(sum(rdy)),'/',num2str(nw),';\n'];
     for itr=1:nw
         msg=[msg workers{itr}];
         if rdy(itr)

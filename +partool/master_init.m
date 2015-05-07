@@ -56,16 +56,19 @@ while 1
     msg=['partool: Initialization status ',num2str(sum(rdy)),'/',num2str(nw),'; '];
     for itr=1:nw
         msg=[msg workers{itr}];
+        msg=[msg '('];
         if rdy(itr)
             msg=[msg '*'];
+        else
+            msg=[msg ' '];
         end
-        msg=[msg ' '];
+        msg=[msg ') '];
     end
     fprintf([revstr,msg]);
     revstr=repmat(sprintf('\b'),1,length(msg));
     % check if all done
     if sum(rdy)==nw
-        msg=sprintf('partool: All initialization tasks completed!\n');
+        msg=sprintf('\npartool: All initialization tasks completed!\n');
         fprintf(msg);
         break
     end

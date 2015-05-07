@@ -45,15 +45,14 @@ while 1
         end
     end
     % print status
-    msg=['partool: Task status ',num2str(nw-sum(rdy)),'/',nw,';\n'];
-    for itr=1:nw
+    msg=['partool: Task status ',num2str(sum(rdy)),'/',num2str(pool.nw),'; '];
+    for itr=1:pool.nw
         msg=[msg workers{itr}];
         if rdy(itr)
             msg=[msg '*'];
         end
         msg=[msg ' '];
     end
-    msg=[msg '\n* = completed'];
     fprintf([revstr,msg]);
     revstr=repmat(sprintf('\b'),1,length(msg));
     % check if all done

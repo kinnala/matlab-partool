@@ -8,7 +8,9 @@ owdata=iwdata;
 
 % multiply with the initialized matrix and sleep a while
 odata.y=iwdata.A*idata.x;
-pause(5*rand);
+waittime=10+10*rand;
+display(['Waiting for ',num2str(waittime),' seconds ...']);
+pause(waittime);
 
 % set odata.done=1 to inform master that the task is completed.
 % if exception is thrown by the task, then 'partool.start_slave' sets odata.done=0.

@@ -1,3 +1,5 @@
+% this example demonstrates how SPMD paradigm is used.
+
 % use current folder and initialize with @example_job_init
 pool=partool.master_init('.',@example_job_init);
 

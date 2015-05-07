@@ -2,11 +2,9 @@ function pool=master_init(directory,initfun)
 % Initialize master node. Changes 'pwd' to input directory!
 %
 % Syntax:
-%
 %   pool=partool.master_init(directory,initfun)
 %
 % where
-%
 %   directory -- communication folder
 %   initfun   -- anonymous function to initialize slaves (see below)
 %

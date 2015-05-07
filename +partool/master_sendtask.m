@@ -2,11 +2,9 @@ function odata=master_sendtask(pool,task,idata)
 % Send a task to all slaves.
 %
 % Syntax:
-%
 %   odata=partool.master_sendtask(pool,task,idata)
 %
 % where
-%
 %   pool    -- the parallel pool from partool_master_init
 %   task    -- the anonymous function defining the task (see below)
 %   idata   -- struct with input data for slaves

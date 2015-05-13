@@ -1,12 +1,14 @@
-function nsent=master_queueprocess(pool)
+function npool=master_queueprocess(pool)
 % Find out if there exist free workers.
 %  - If yes, then send them tasks from the queue.
 %  - If no, then do nothing.
 %
 % Syntax:
 %   nsent=partool.master_queueprocess(poll) 
-%
+ %
 cd(pool.directory);
+
+npool=pool;
 
 freeworkers={};
 
@@ -43,4 +45,4 @@ nsent=N-1;
 display(['partool: Sent ',num2str(nsent),' tasks to workers!']);
 
 % remove sent tasks from queue
-pool.queue=pool.queue(N:end);
+npool.queue=pool.queue(N:end);

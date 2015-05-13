@@ -9,7 +9,7 @@ owdata=iwdata;
 % multiply with the initialized matrix and sleep a while
 odata.y=iwdata.A*idata.x;
 waittime=10+10*rand;
-if isfield(idata.id)
+if isfield(idata,'id')
     display(['Running task id ',num2str(idata.id),' ...']);
 end
 display(['Waiting for ',num2str(waittime),' seconds ...']);

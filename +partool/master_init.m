@@ -73,7 +73,6 @@ end
 % save data to pool-struct
 pool=partool.Pool;
 pool.workers=workers;
-pool.nw=nw;
 
 end
 

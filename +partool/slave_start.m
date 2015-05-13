@@ -8,7 +8,7 @@ global workerdata
 global id
 
 % not restart
-if nargin==1
+if nargin==0
     workerdata=[];
 end
 % get name of the machine (Linux only)

@@ -6,6 +6,10 @@ function master_queueprocess(pool)
 % Syntax:
 %   partool.master_queueprocess(poll) 
 %
+if length(pool.queue)==0
+    % nothing to do
+    return
+end
 
 freeworkers={};
 

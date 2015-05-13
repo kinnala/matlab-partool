@@ -8,6 +8,7 @@ ntasks=10;
 for itr=1:ntasks
     idata=struct;
     idata.x=ones(10,1);
+    idata.id=itr;
     pool=partool.master_queuetask(pool,@example_job_task,idata);
 end
 

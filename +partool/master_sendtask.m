@@ -18,8 +18,6 @@ function odata=master_sendtask(pool,task,idata)
 % as third input parameter. Data in 'inputworkerdata' is
 % saved per slave basis.
 
-cd(pool.directory);
-
 for itr=1:pool.nw
     taskstruct=struct;
     taskstruct.task=task;

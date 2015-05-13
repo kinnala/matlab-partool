@@ -1,6 +1,6 @@
 % this example demonstrates queued distribution of tasks
 
-pool=partool.master_init('.',@example_job_init);
+pool=partool.master_init(@example_job_init);
 
 ntasks=10;
 
@@ -9,7 +9,7 @@ for itr=1:ntasks
     idata=struct;
     idata.x=ones(10,1);
     idata.id=itr;
-    pool=partool.master_queuetask(pool,@example_job_task,idata);
+    partool.master_queuetask(pool,@example_job_task,idata);
 end
 
 done=0;

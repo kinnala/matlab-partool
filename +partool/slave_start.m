@@ -1,9 +1,9 @@
-function slave_start(directory,restartflag)
+function slave_start(restartflag)
 % Start a partool slave.
 % NOTE! Saves slave data to global variable 'workerdata'.
 %
 % Syntax:
-%   partool.slave_start(directory)
+%   partool.slave_start()
 global workerdata
 global id
 
@@ -11,8 +11,6 @@ global id
 if nargin==1
     workerdata=[];
 end
-% change directory
-cd(directory)
 % get name of the machine (Linux only)
 name=evalc('!hostname');
 % remove final '\n'

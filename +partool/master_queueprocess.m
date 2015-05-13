@@ -1,14 +1,11 @@
-function npool=master_queueprocess(pool)
+function master_queueprocess(pool)
 % Find out if there exist free workers.
 %  - If yes, then send them tasks from the queue.
 %  - If no, then do nothing.
 %
 % Syntax:
-%   nsent=partool.master_queueprocess(poll) 
- %
-cd(pool.directory);
-
-npool=pool;
+%   partool.master_queueprocess(poll) 
+%
 
 freeworkers={};
 
@@ -26,10 +23,6 @@ if length(freeworkers)==0
     return
 end
 
-if ~isfield(pool,'queue')
-    error('partool.master_queueprocess: No queue variable set in ''pool''!');
-end
-
 % send tasks to free workers
 N=1;
 for itr=1:length(freeworkers)
@@ -45,4 +38,4 @@ nsent=N-1;
 display(['partool: Sent ',num2str(nsent),' tasks to workers!']);
 
 % remove sent tasks from queue
-npool.queue=pool.queue(N:end);
+pool.queue=pool.queue(N:end);

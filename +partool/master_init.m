@@ -1,11 +1,10 @@
-function pool=master_init(directory,initfun)
-% Initialize master node. Changes 'pwd' to input directory!
+function pool=master_init(initfun)
+% Initialize master node. Communication directory is 'pwd'!
 %
 % Syntax:
-%   pool=partool.master_init(directory,initfun)
+%   pool=partool.master_init(initfun)
 %
 % where
-%   directory -- communication folder
 %   initfun   -- anonymous function to initialize slaves (see below)
 %
 %   pool      -- a variable used to identify the parallel pool
@@ -15,7 +14,6 @@ function pool=master_init(directory,initfun)
 % one struct containing the worker data.
 
 % change directory and find workers
-cd(directory)
 files=dir('partool_worker*');
 nw=0;
 % put found workers to a cell array
@@ -73,8 +71,8 @@ while 1
 end
 
 % save data to pool-struct
+pool=partool.Pool;
 pool.workers=workers;
-pool.directory=directory;
 pool.nw=nw;
 
 end

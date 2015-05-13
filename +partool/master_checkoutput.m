@@ -9,8 +9,6 @@ function [odata,ids]=master_checkoutput(pool)
 %
 %   odata  --- data outputted by tasks (cell array)
 %   ids    --- worker ids of the corresponding entries in 'odata'
-cd(pool.directory);
-
 odata={};
 ids=[];
 

@@ -21,11 +21,13 @@ while ~done
     partool.master_queueprocess(pool);
     [odata,ids]=partool.master_checkoutput(pool);
     if length(ids)~=0
+        ztr=1;
         for itr=ids
-            if odata{itr}.done==0
-                display(['Worker ',num2str(ids(itr)),' reported failure!']);
+            if odata{ztr}.done==0
+                display(['Worker ',num2str(ids(ztr)),' reported failure!']);
             end
             ncomplete=ncomplete+1;
+            ztr=ztr+1;
         end
         display(['Already completed ',num2str(ncomplete),' tasks!']);
     end

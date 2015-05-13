@@ -22,6 +22,9 @@ while ~done
     [odata,ids]=partool.master_checkoutput(pool);
     if length(ids)~=0
         for itr=ids
+            if odata{itr}.done==0
+                display(['Worker ',num2str(ids(itr)),' reported failure!']);
+            end
             ncomplete=ncomplete+1;
         end
         display(['Already completed ',num2str(ncomplete),' tasks!']);

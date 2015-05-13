@@ -1,9 +1,9 @@
-function slave_restart(directory)
+function slave_restart()
 % Restart the worker and send failure to master.
 % NOTE! Global variable 'workerdata' is used to initialize worker if exists.
 %
 % Syntax:
-%   partool.slave_restart(directory)
+%   partool.slave_restart()
 name=evalc('!hostname');
 name=name(1:(end-1));
 odata.done=0;
